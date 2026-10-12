@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Client from './composants/Client';
+import Visiteur from './composants/Visiteur';
 
 function App() {
+  const connecte =true;
+
+  const clients = [
+    { id: 1, nom: "Zaid", connecte: true },
+    { id: 2, nom: "Omar", connecte: false },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {connecte ? (
+        clients
+          .filter((c) => c.connecte)
+          .map((c) => <Client key={c.id} nom={c.nom} />)
+      ) : (
+        <Visiteur />
+      )}
     </div>
   );
 }
