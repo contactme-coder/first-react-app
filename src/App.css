@@ -22,7 +22,7 @@ body {
   padding: 20px;
 }
 
-/* Grid pour les rangées à deux colonnes */
+/* C'est ici qu'on utilise Grid pour mettre les champs côte à côte */
 .rangee {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -49,15 +49,17 @@ body {
   width: 100%;
   padding: 5px;
   border: 1px solid gray;
+  box-sizing: border-box;
 }
 
 .champ select {
   width: 100%;
   padding: 5px;
   border: 1px solid gray;
+  box-sizing: border-box;
 }
 
-/* Grid pour aligner les radios sur une ligne */
+/* Grid pour aligner les 4 boutons radio */
 .radio-group {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -68,7 +70,7 @@ body {
   font-weight: normal;
 }
 
-/* Grid pour la case à cocher et son texte */
+/* Grid pour aligner la case à cocher et son texte */
 .checkbox-group {
   display: grid;
   grid-template-columns: auto 1fr;
