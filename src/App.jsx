@@ -1,14 +1,15 @@
-import Header from "./composants/Header";
-import Nav from "./composants/Nav";
-import Filiere from "./Filiere";
+import './App.css';
+import StagiaireList from './components/StagiaireList';
 
-function App(){
-  return(
-      <div>
-      <Header />
-      <Nav />
-      <Filiere />
-      </div>
+function App() {
+  return (
+    <div>
+      <header>
+        Marhba Bikom f M204
+      </header>
+      <StagiaireList />
+    </div>
   );
 }
+
 export default App;
