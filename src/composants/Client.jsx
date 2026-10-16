@@ -1,6 +1,7 @@
-function Client(props) {
+export default function Client(props) {
   return (
-    <h2>Bienvenu! {props.nom}</h2>
+    <div>
+      <h2>Bienvenue {props.nom} !!</h2>
+    </div>
   );
 }
-export default Client;
