@@ -1,124 +1,94 @@
-import { useState } from 'react';
 import './App.css';
 
 export default function App() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    streetAddress: '',
-    addressLine2: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    phoneNumber: '',
-    email: '',
-    membershipLevel: 'Bronze',
-    terms: false
-  });
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Données soumises :', formData);
-    alert('Formulaire soumis avec succès ! Vérifiez la console (F12).');
-  };
-
   return (
-    <div className="form-container">
-      <div className="form-header">Membership Registration</div>
-      
-      <form className="form-body" onSubmit={handleSubmit}>
-        
-        <div className="row">
-          <div className="col">
-            <label>First Name <span className="required">*</span></label>
-            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
+    <div className="formulaire">
+      <div className="entete">Membership Registration</div>
+
+      <form className="contenu">
+
+        <div className="rangee">
+          <div className="champ">
+            <label>First Name <span className="etoile">*</span></label>
+            <input type="text" required />
           </div>
-          <div className="col">
-            <label>Last Name <span className="required">*</span></label>
-            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
+          <div className="champ">
+            <label>Last Name <span className="etoile">*</span></label>
+            <input type="text" required />
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <label>Street Address <span className="required">*</span></label>
-            <input type="text" name="streetAddress" value={formData.streetAddress} onChange={handleChange} required />
-          </div>
+        <div className="champ">
+          <label>Street Address <span className="etoile">*</span></label>
+          <input type="text" required />
         </div>
 
-        <div className="row">
-          <div className="col">
-            <label>Address Line 2</label>
-            <input type="text" name="addressLine2" value={formData.addressLine2} onChange={handleChange} />
-          </div>
+        <div className="champ">
+          <label>Address Line 2</label>
+          <input type="text" />
         </div>
 
-        <div className="row">
-          <div className="col">
-            <label>City <span className="required">*</span></label>
-            <input type="text" name="city" value={formData.city} onChange={handleChange} required />
+        <div className="rangee">
+          <div className="champ">
+            <label>City <span className="etoile">*</span></label>
+            <input type="text" required />
           </div>
-          <div className="col">
-            <label>State <span className="required">*</span></label>
-            <select name="state" value={formData.state} onChange={handleChange} required>
-              <option value="">Sélectionnez</option>
-              <option value="NY">New York</option>
-              <option value="CA">Californie</option>
-              <option value="TX">Texas</option>
-              <option value="FL">Floride</option>
+          <div className="champ">
+            <label>State / Région <span className="etoile">*</span></label>
+            <select required>
+              <option value="">Sélectionnez une région</option>
+              <option value="Tanger-Tétouan-Al Hoceïma">Tanger-Tétouan-Al Hoceïma</option>
+              <option value="L'Oriental">L'Oriental</option>
+              <option value="Fès-Meknès">Fès-Meknès</option>
+              <option value="Rabat-Salé-Kénitra">Rabat-Salé-Kénitra</option>
+              <option value="Béni Mellal-Khénifra">Béni Mellal-Khénifra</option>
+              <option value="Casablanca-Settat">Casablanca-Settat</option>
+              <option value="Marrakech-Safi">Marrakech-Safi</option>
+              <option value="Drâa-Tafilalet">Drâa-Tafilalet</option>
+              <option value="Souss-Massa">Souss-Massa</option>
+              <option value="Guelmim-Oued Noun">Guelmim-Oued Noun</option>
+              <option value="Laâyoune-Sakia El Hamra">Laâyoune-Sakia El Hamra</option>
+              <option value="Dakhla-Oued Ed-Dahab">Dakhla-Oued Ed-Dahab</option>
             </select>
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <label>Zip Code <span className="required">*</span></label>
-            <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} required />
+        <div className="rangee">
+          <div className="champ">
+            <label>Zip Code <span className="etoile">*</span></label>
+            <input type="text" required pattern="[0-9]{5}" title="Veuillez entrer un code postal à 5 chiffres" />
           </div>
-          <div className="col">
-            <label>Phone Number <span className="required">*</span></label>
-            <input type="tel" name="phoneNumber" placeholder="(___) ___-____" value={formData.phoneNumber} onChange={handleChange} required />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col">
-            <label>Email Address <span className="required">*</span></label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          <div className="champ">
+            <label>Phone Number <span className="etoile">*</span></label>
+            <input type="tel" required pattern="[0-9]{10}" title="Veuillez entrer un numéro de téléphone à 10 chiffres" />
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <label>Choose your membership level <span className="required">*</span></label>
-            <div className="radio-group">
-              <label><input type="radio" name="membershipLevel" value="Bronze" checked={formData.membershipLevel === 'Bronze'} onChange={handleChange} /> Bronze</label>
-              <label><input type="radio" name="membershipLevel" value="Silver" checked={formData.membershipLevel === 'Silver'} onChange={handleChange} /> Silver</label>
-              <label><input type="radio" name="membershipLevel" value="Gold" checked={formData.membershipLevel === 'Gold'} onChange={handleChange} /> Gold</label>
-              <label><input type="radio" name="membershipLevel" value="Platinum" checked={formData.membershipLevel === 'Platinum'} onChange={handleChange} /> Platinum</label>
-            </div>
+        <div className="champ">
+          <label>Email Address <span className="etoile">*</span></label>
+          <input type="email" required />
+        </div>
+
+        <div className="champ">
+          <label>Choose your membership level <span className="etoile">*</span></label>
+          <div className="radio-group">
+            <label><input type="radio" name="level" required /> Bronze</label>
+            <label><input type="radio" name="level" /> Silver</label>
+            <label><input type="radio" name="level" /> Gold</label>
+            <label><input type="radio" name="level" /> Platinum</label>
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <label>Terms and Conditions <span className="required">*</span></label>
-            <div className="checkbox-group">
-              <input type="checkbox" name="terms" checked={formData.terms} onChange={handleChange} required />
-              <label>J'accepte les termes et conditions</label>
-            </div>
+        <div className="champ">
+          <label>Terms and Conditions <span className="etoile">*</span></label>
+          <div className="checkbox-group">
+            <input type="checkbox" required />
+            <label>J'accepte les termes et conditions</label>
           </div>
         </div>
 
         <button type="submit">S'inscrire</button>
+
       </form>
     </div>
   );

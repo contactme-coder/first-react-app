@@ -1,99 +1,90 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+  background-color: lightgray;
+  font-family: Arial;
 }
 
-.form-container {
-  max-width: 700px;
-  margin: 20px auto;
+.formulaire {
+  width: 600px;
+  margin: auto;
+  margin-top: 30px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: 1px solid gray;
 }
 
-.form-header {
-  background-color: #5d7a8c;
+.entete {
+  background-color: slategray;
   color: white;
+  padding: 15px;
+  font-size: 24px;
+}
+
+.contenu {
   padding: 20px;
-  font-size: 28px;
-  font-weight: normal;
 }
 
-.form-body {
-  padding: 30px;
-}
-
-.row {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.col {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-
-.required {
-  color: #c0392b;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.radio-group {
-  display: flex;
+/* Grid pour les rangées à deux colonnes */
+.rangee {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.champ {
+  margin-bottom: 15px;
+}
+
+.champ label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.etoile {
+  color: red;
+}
+
+.champ input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+.champ select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+/* Grid pour aligner les radios sur une ligne */
+.radio-group {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
 }
 
 .radio-group label {
   font-weight: normal;
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
+/* Grid pour la case à cocher et son texte */
 .checkbox-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
 }
 
 .checkbox-group label {
   font-weight: normal;
-  margin-bottom: 0;
 }
 
 button {
-  background-color: #5d7a8c;
+  background-color: slategray;
   color: white;
+  padding: 10px 20px;
   border: none;
-  padding: 12px 25px;
-  font-size: 16px;
-  border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: #4a6273;
+  margin-top: 10px;
 }
