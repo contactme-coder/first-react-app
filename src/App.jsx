@@ -1,19 +1,14 @@
-import Pseudo from "./components/Pseudo";
-import StudentProfile from "./components/StudentProfile";
-import ProductList from "./components/ProductList";
-import ListeTaches from "./components/ListeTaches";
-import FavoriteMovies from "./components/FavoriteMovies";
+import Counter from "./components/Counter";
 
 function App() {
   return (
-    <div>
-      <header>TP2</header>
-      <Pseudo />
-      <StudentProfile nom="AZAANOUN ISMAIL" filiere="Développement Digital Option Web Full Stack" />
-      <ProductList />
-      <ListeTaches />
-      <FavoriteMovies />
-    </div>
+    <>
+      <header>
+        <h1 style={{ textAlign: "center" }}>TP3 - Exercice 1 : Counter</h1>
+      </header>
+      <Counter />
+    </>
   );
 }
+
 export default App;
