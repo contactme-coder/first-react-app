@@ -1,54 +1,27 @@
 import { useState } from "react";
-import MoodSelector from "./components/MoodSelector";
-import MoodDisplay from "./components/MoodDisplay";
-import MoodHistory from "./components/MoodHistory";
-function App() {
+import RechercheInput from "./components/RechercheInput";
+import RechercheSelect from "./components/RechercheSelect";
+import RechercheResultat from "./components/RechercheResultat";
+
+const liste=[ {nom:"banane",type:"fruit"}, {nom:"orange",type:"fruit"}, {nom:"pomme",type:"fruit"}, {nom:"raisins",type:"fruit"}, {nom:"kiwi",type:"fruit"}, {nom:"tomate",type:"legume"}, {nom:"carotte",type:"legume"}, {nom:"pomme de terre",type:"legume"}, {nom:"navet",type:"legume"}, {nom:"poivron",type:"legume"} ]
+export default function App() {
+  const [motCle, setMotCle] = useState("");
+  const [typeChoisi, setTypeChoisi] = useState("");
+
+  const resultats = liste.filter(function (produit) {
+    const correspondMotCle = produit.nom
+      .toLowerCase()
+      .includes(motCle.toLowerCase());
+    const correspondType = typeChoisi === "" || produit.type === typeChoisi;
+    return correspondMotCle && correspondType;
+  });
+
   return (
     <div>
-      <header><h2 style={{textAlign:"center"}}>TP3 - Exercice 2</h2></header>
-      <MoodBoard />
+      <h2>Recherche de produits</h2>
+      <RechercheInput onRecherche={setMotCle} />
+      <RechercheSelect valeur={typeChoisi} onSelect={setTypeChoisi} />
+      <RechercheResultat produits={resultats} />
     </div>
   );
 }
-
-function MoodBoard() {
-  const [currentMood, setCurrentMood] = useState(null);
-  const [history, setHistory] = useState([]);
-
-  function handleSelectMood(mood) {
-    setCurrentMood(mood);
-    setHistory((prev) => [...prev, mood]);
-  }
-  function resetMood() {
-    setCurrentMood(null);
-  }
-  function clearHistory() {
-    setHistory([]);
-  }
-  return (
-    <div style={{ textAlign: "center" }}>
-      <h2>🎨 MoodBoard du Jour</h2>
-
-      <MoodSelector onSelect={handleSelectMood} />
-      <MoodDisplay mood={currentMood} />
-      <div>
-        <button
-          onClick={resetMood}
-          style={{
-            backgroundColor: "grey",
-          }}>🔄 Réinitialiser</button>
-        <button
-          onClick={clearHistory}
-          style={{
-            backgroundColor: "brown",
-            color: "white"
-          }}
-        >❌ Effacer l'historique</button>
-      </div>
-
-      <MoodHistory history={history} />
-    </div>
-  );
-}
-export default App;
-
