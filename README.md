@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# 🍽️ Creative Recipe Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mini-application React 18 qui permet de créer, afficher, modifier, dupliquer et supprimer des recettes de cuisine.
 
-## Available Scripts
+## 🚀 Lancer le projet
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+L'application s'ouvre sur `http://localhost:3000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📸 Aperçus
 
-### `npm test`
+### Tacos méditerranéens
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Tacos méditerranéens](https://i.ibb.co/0RBc0vX6/02020202.png)
 
-### `npm run build`
+### Smoothie mangue
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Smoothie mangue](https://i.ibb.co/rGK5nVJL/01010101.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔗 Liens directs
 
-### `npm run eject`
+- [Image Tacos](https://i.ibb.co/0RBc0vX6/02020202.png)
+- [Image Smoothie](https://i.ibb.co/rGK5nVJL/01010101.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✨ Fonctionnalités
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ✅ Afficher la liste des recettes
+- ✅ Créer une recette (nom, catégorie, ingrédients dynamiques, difficulté, description, image)
+- ✅ Modifier une recette (formulaire pré-rempli)
+- ✅ Dupliquer une recette
+- ✅ Supprimer une recette
+- ✅ Rechercher par nom
+- ✅ Filtrer par catégorie
+- ✅ Pagination (4 recettes par page)
+- ✅ Ajouter / supprimer des ingrédients dynamiques dans le formulaire
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🧩 Structure du projet
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── index.js                 # Point d'entrée React
+├── App.jsx                  # Bootstrap (monte MainPage)
+├── MainPage.jsx             # Composant principal (Q7)
+├── App.css                  # Styles globaux
+└── components/
+    ├── RecipeItem.jsx       # Q1 - Carte d'une recette
+    ├── RecipeList.jsx       # Q2 - Liste des cartes
+    ├── RecipeForm.jsx       # Q3 - Formulaire (modale)
+    ├── RecipeFilter.jsx     # Q4 - Recherche + catégorie
+    ├── Pagination.jsx       # Q5 - Pagination
+    └── Aide.jsx             # Q6 - Panneau d'aide
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🛠️ Technologies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **React 18.0.0** — `useState`, props, événements, formulaire contrôlé
+- **CSS Grid** — mise en page responsive
+- **JavaScript ES6+** — `.map()`, `.filter()`, `.slice()`, spread `...`
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📚 Concepts React utilisés
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Concept | Où |
+|---|---|
+| `useState` | `MainPage.jsx` (6 states) + `RecipeForm.jsx` (6 states) |
+| Props | Passage de données parent → enfants |
+| Callbacks | Remontée d'événements enfants → parent |
+| Formulaire contrôlé | Chaque input lié à un state |
+| Rendu conditionnel | `{formOuvert && <RecipeForm />}`, `{recette.image && <img />}` |
+| `preventDefault()` | Soumission du formulaire |
