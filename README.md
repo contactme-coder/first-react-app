@@ -52,7 +52,6 @@ L'application s'ouvre sur `http://localhost:3000`.
 src/
 ├── index.js                 # Point d'entrée React
 ├── App.jsx                  # Bootstrap (monte MainPage)
-├── MainPage.jsx             # Composant principal (Q7)
 ├── App.css                  # Styles globaux
 └── components/
     ├── RecipeItem.jsx       # Q1 - Carte d'une recette
@@ -61,6 +60,7 @@ src/
     ├── RecipeFilter.jsx     # Q4 - Recherche + catégorie
     ├── Pagination.jsx       # Q5 - Pagination
     └── Aide.jsx             # Q6 - Panneau d'aide
+    ├── MainPage.jsx             # Composant principal (Q7)
 ```
 
 ---
